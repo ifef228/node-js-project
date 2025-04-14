@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { StocksService } from './stocks.service';
 import { StocksController } from './stocks.controller';
-import { FileAccessor, FileService } from './file.service';
+import { FileAccessor, FileService } from '../file.service';
 import { Stock } from './entities/stock.entity';
 
 @Module({

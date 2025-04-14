@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { StocksService } from './stocks.service';
 import { CreateStockDto } from './dto/create-stock.dto';
 import { UpdateStockDto } from './dto/update-stock.dto';
@@ -6,6 +6,11 @@ import { UpdateStockDto } from './dto/update-stock.dto';
 @Controller('stocks')
 export class StocksController {
   constructor(private readonly stocksService: StocksService) {}
+
+  @Get('/filter')
+  findAllFilteredByTitle(@Query('title') title: string) {
+    return this.stocksService.findAll(title);
+  }
 
   @Post()
   create(@Body() createStockDto: CreateStockDto) {

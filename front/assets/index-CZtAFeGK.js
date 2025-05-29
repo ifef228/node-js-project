@@ -1,38 +1,38 @@
-function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(u){let t=String(u).toLowerCase().replace(/\s+/g,"");return t===t.split("").reverse().join("")}class e{constructor(u){this.parent=u}getHTML(e){var o;let r=[`\u{41D}\u{430}\u{437}\u{432}\u{430}\u{43D}\u{438}\u{435}: ${e.title}`,`\u{41E}\u{43F}\u{438}\u{441}\u{430}\u{43D}\u{438}\u{435}: ${e.text}`,`\u{42F}\u{432}\u{43B}\u{44F}\u{435}\u{442}\u{441}\u{44F} \u{43F}\u{430}\u{43B}\u{438}\u{43D}\u{434}\u{440}\u{43E}\u{43C}\u{43E}\u{43C}: ${t(e.title)?"Да ✓":"Нет ✗"}`];r.length>2&&function(u,t,e){if(t<0||t>=u.length||1>=u.length)return console.error("Некорректные индексы from или to");let o=u.splice(t,1)[0];u.splice(e,0,o)}(r,r.length-1,1);let i=u(e.text.split(" "),"abc");return`
-            <div class="product-full ${t(e.title)?"palindrome-highlight":""}">
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))o(r);new MutationObserver(r=>{for(const n of r)if(n.type==="childList")for(const i of n.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&o(i)}).observe(document,{childList:!0,subtree:!0});function e(r){const n={};return r.integrity&&(n.integrity=r.integrity),r.referrerPolicy&&(n.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?n.credentials="include":r.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function o(r){if(r.ep)return;r.ep=!0;const n=e(r);fetch(r.href,n)}})();function h(a,t){return a.join(t)}function b(a,t,e){if(t<0||t>=a.length||e<0||e>=a.length)return console.error("Некорректные индексы from или to"),a;const o=a.splice(t,1)[0];return a.splice(e,0,o),a}function f(a,t){let e=0;for(const o of a)t.startsWith(o)&&e++;return e}function p(a){const t=String(a).toLowerCase().replace(/\s+/g,"");return t===t.split("").reverse().join("")}class v{constructor(t){this.parent=t}getHTML(t){const e=[`Название: ${t.title}`,`Описание: ${t.text}`,`Является палиндромом: ${p(t.title)?"Да ✓":"Нет ✗"}`];e.length>2&&b(e,e.length-1,1);const o=t.text.split(" "),r=f(o,"abc");return`
+            <div class="product-full ${p(t.title)?"palindrome-highlight":""}">
                 <div class="product-header">
                     <div class="product-image-container">
-                        <img src="${e.src}" alt="${e.title}" class="product-image">
+                        <img src="${t.src}" alt="${t.title}" class="product-image">
                     </div>
                     <div class="product-title-area">
-                        <h2>${e.title}</h2>
-                        ${t(e.title)?'<div class="palindrome-tag">✨ Это палиндром!</div>':""}
+                        <h2>${t.title}</h2>
+                        ${p(t.title)?'<div class="palindrome-tag">✨ Это палиндром!</div>':""}
                     </div>
                 </div>
                 
                 <div class="product-body">
                     <div class="product-description">
-                        <p>${e.text}</p>
-                        ${i>0?`<p class="prefix-note">\u{412} \u{43E}\u{43F}\u{438}\u{441}\u{430}\u{43D}\u{438}\u{438} ${i} ${this.getWordForm(i)} \u{441} \u{43F}\u{440}\u{435}\u{444}\u{438}\u{43A}\u{441}\u{43E}\u{43C} "abc"</p>`:""}
+                        <p>${t.text}</p>
+                        ${r>0?`<p class="prefix-note">В описании ${r} ${this.getWordForm(r)} с префиксом "abc"</p>`:""}
                     </div>
                     
                     <div class="product-characteristics">
-                        <h4>\u{425}\u{430}\u{440}\u{430}\u{43A}\u{442}\u{435}\u{440}\u{438}\u{441}\u{442}\u{438}\u{43A}\u{438}:</h4>
+                        <h4>Характеристики:</h4>
                         <ul>
-                            ${r.map(u=>`<li>${u}</li>`).join("")}
+                            ${e.map(n=>`<li>${n}</li>`).join("")}
                         </ul>
                     </div>
                     
                     <div class="product-extra-info">
                         <div class="info-box">
-                            <h5>\u{418}\u{43D}\u{442}\u{435}\u{440}\u{435}\u{441}\u{43D}\u{44B}\u{439} \u{444}\u{430}\u{43A}\u{442}</h5>
-                            <p>${o=["Знаете","ли","вы","что",e.title.length>5?"это длинное название":"это короткое название"],o.join(" ")}?</p>
+                            <h5>Интересный факт</h5>
+                            <p>${h(["Знаете","ли","вы","что",t.title.length>5?"это длинное название":"это короткое название"]," ")}?</p>
                         </div>
                     </div>
                     
                     <div class="product-actions">
                         <button class="buy-button">
-                            \u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C} \u{441}\u{435}\u{439}\u{447}\u{430}\u{441}
+                            Купить сейчас
                         </button>
                         <div class="quantity-selector">
                             <button id="product-minus" class="quantity-btn">-</button>
@@ -163,13 +163,13 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                     }
                 </style>
             </div>
-            `}getWordForm(u){return 1===u?"слово":u>=2&&u<=4?"слова":"слов"}render(u){this.parent.innerHTML="";let t=this.getHTML(u);this.parent.insertAdjacentHTML("beforeend",t);let e=1,o=document.getElementById("product-count"),r=document.getElementById("product-minus");r&&r.addEventListener("click",()=>{e>1&&(o.textContent=--e)});let i=document.getElementById("product-plus");i&&i.addEventListener("click",()=>{o.textContent=++e})}}class o{constructor(u,t,e,o){this.root=u,this.id=t,this.data=e,this.document=o}get pageRoot(){return this.document.getElementById("product-content")}getHTML(){return`
+            `}getWordForm(t){return t===1?"слово":t>=2&&t<=4?"слова":"слов"}render(t){this.parent.innerHTML="";const e=this.getHTML(t);this.parent.insertAdjacentHTML("beforeend",e);let o=1;const r=document.getElementById("product-count"),n=document.getElementById("product-minus");n&&n.addEventListener("click",()=>{o>1&&(o--,r.textContent=o)});const i=document.getElementById("product-plus");i&&i.addEventListener("click",()=>{o++,r.textContent=o})}}class y{get(t,e){const o=new XMLHttpRequest;o.open("GET",t),o.send(),o.onreadystatechange=()=>{o.readyState===4&&this._handleResponse(o,e)}}post(t,e,o){const r=new XMLHttpRequest;r.open("POST",t),r.setRequestHeader("Content-Type","application/json"),r.send(JSON.stringify(e)),r.onreadystatechange=()=>{r.readyState===4&&this._handleResponse(r,o)}}patch(t,e,o){const r=new XMLHttpRequest;r.open("PATCH",t),r.setRequestHeader("Content-Type","application/json"),r.send(JSON.stringify(e)),r.onreadystatechange=()=>{r.readyState===4&&this._handleResponse(r,o)}}delete(t,e){const o=new XMLHttpRequest;o.open("DELETE",t),o.send(),o.onreadystatechange=()=>{o.readyState===4&&this._handleResponse(o,e)}}_handleResponse(t,e){if(t.status>=200&&t.status<300)try{if(t.responseText){const r=JSON.parse(t.responseText);e(r,t.status)}else console.warn("Пустой ответ от сервера"),e(null,t.status,"Пустой ответ")}catch(r){console.error("Ошибка парсинга JSON:",r),console.error("Ответ от сервера:",t.responseText),e(null,t.status,"Ошибка парсинга JSON")}else console.error(`HTTP-ошибка ${t.status}: ${t.statusText}`),e(null,t.status,t.statusText)}}const s=new y;class w{constructor(){this.baseUrl="http://localhost:3000"}getProducts(){return`${this.baseUrl}/products`}getProductById(t){return`${this.baseUrl}/products/${t}`}searchProductsByTitle(t){return`${this.baseUrl}/products/filter?title=${t}`}createProduct(){return`${this.baseUrl}/products`}removeProductById(t){return`${this.baseUrl}/products/${t}`}updateProductById(t){return`${this.baseUrl}/products/${t}`}}const d=new w;class k{constructor(t,e,o,r){this.root=t,this.id=e,this.data=o,this.document=r}get pageRoot(){return this.document.getElementById("product-content")}getHTML(){return`
             <div class="product-page">
                 <header class="product-header">
                     <button id="home-button" class="home-button">
-                        <span class="home-icon">\u{1F3E0}</span> \u{414}\u{43E}\u{43C}\u{43E}\u{439}
+                        <span class="home-icon">🏠</span> Домой
                     </button>
-                    <h2>\u{421}\u{442}\u{440}\u{430}\u{43D}\u{438}\u{446}\u{430} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}</h2>
+                    <h2>Страница товара</h2>
                 </header>
                 <div id="product-content"></div>
             </div>
@@ -219,27 +219,27 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                     font-weight: bold;
                 }
             </style>
-            `}goHome(){new h(this.root,this.document).render()}clickBack(){this.goHome()}render(){this.root.innerHTML="";let u=this.getHTML();this.root.insertAdjacentHTML("beforeend",u),this.document.getElementById("home-button").addEventListener("click",()=>this.goHome());let t=new e(this.pageRoot),o=+this.id;isNaN(o)&&(o=1);let r=this.data.find(u=>u.id===o);r||console.error("polundra!!!"),t.render(r)}}class r{constructor(u){this.parent=u}getHTML(e){let o=t(e.title),r=u(e.text.split(" "),"abc");return`
-            <!-- \u{41E}\u{431}\u{435}\u{440}\u{43D}\u{443}\u{442}\u{44C} \u{432}\u{441}\u{435} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{438} \u{432} \u{43A}\u{43E}\u{43D}\u{442}\u{435}\u{439}\u{43D}\u{435}\u{440} -->
+            `}goHome(){new l(this.root,this.document).render()}clickBack(){this.goHome()}render(){s.get(d.getProducts(),n=>console.log()),this.root.innerHTML="";const t=this.getHTML();this.root.insertAdjacentHTML("beforeend",t),this.document.getElementById("home-button").addEventListener("click",()=>this.goHome());const e=new v(this.pageRoot);let o=+this.id;isNaN(o)&&(o=1);const r=this.data.find(n=>n.id===o);r||console.error("polundra!!!"),e.render(r)}}class u{constructor(t){this.parent=t}getHTML(t){const e=p(t.title),o=f(t.text.split(" "),"abc");return`
+            <!-- Обернуть все карточки в контейнер -->
 <div class="products-container">
-  <div class="product-card ${o?"palindrome-card":""}" id="product-card-${e.id}">
-    <img class="product-image" src="${e.src}" alt="${e.title}">
+  <div class="product-card ${e?"palindrome-card":""}" id="product-card-${t.id}">
+    <img class="product-image" src="${t.src}" alt="${t.title}">
     <div class="product-details">
       <div class="title-container">
-        <h5>${e.title}</h5>
-        ${o?'<span class="palindrome-badge">Палиндром!</span>':""}
+        <h5>${t.title}</h5>
+        ${e?'<span class="palindrome-badge">Палиндром!</span>':""}
       </div>
       <p>
-        ${e.text}
-        ${r>0?`<span class="prefix-info">(${r} \u{441}\u{43B}\u{43E}\u{432} \u{43D}\u{430}\u{447}\u{438}\u{43D}\u{430}\u{44E}\u{442}\u{441}\u{44F} \u{441} "abc")</span>`:""}
+        ${t.text}
+        ${o>0?`<span class="prefix-info">(${o} слов начинаются с "abc")</span>`:""}
       </p>
-      <button class="btn btn-primary card-btn" id="click-card-${e.id}" data-id="${e.id}">
-        Нажми на меня
+      <button class="btn btn-primary card-btn" id="click-card-${t.id}" data-id="${t.id}">
+        ${h(["Нажми","на","меня"]," ")}
       </button>
       <div class="card-actions">
-        <button id="minus-${e.id}" class="control-button"><span>-</span></button>
-        <span id="count-${e.id}">0</span>
-        <button id="plus-${e.id}" class="control-button"><span>+</span></button>
+        <button id="minus-${t.id}" class="control-button"><span>-</span></button>
+        <span id="count-${t.id}">0</span>
+        <button id="plus-${t.id}" class="control-button"><span>+</span></button>
       </div>
     </div>
   </div>
@@ -251,10 +251,10 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 5px;
-  /* overflow-x: auto; /* \u{43E}\u{43F}\u{446}\u{438}\u{43E}\u{43D}\u{430}\u{43B}\u{44C}\u{43D}\u{43E}, \u{435}\u{441}\u{43B}\u{438} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{435}\u{43A} \u{431}\u{43E}\u{43B}\u{44C}\u{448}\u{435}, \u{447}\u{435}\u{43C} \u{432}\u{43B}\u{435}\u{437}\u{430}\u{435}\u{442} \u{43F}\u{43E} \u{448}\u{438}\u{440}\u{438}\u{43D}\u{435} */
+  /* overflow-x: auto; /* опционально, если карточек больше, чем влезает по ширине */
 }
 .product-card {
-  flex: 0 0 320px; /* \u{438}\u{43B}\u{438} \u{43D}\u{443}\u{436}\u{43D}\u{430}\u{44F} \u{432}\u{430}\u{43C} \u{448}\u{438}\u{440}\u{438}\u{43D}\u{430} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{438} */
+  flex: 0 0 320px; /* или нужная вам ширина карточки */
   min-width: 320px;
   max-width: 320px;
   min-height: 420px;
@@ -268,29 +268,29 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
   flex-direction: column;
   transition: transform 0.2s;
 }
-/* \u{43E}\u{441}\u{442}\u{430}\u{43B}\u{44C}\u{43D}\u{44B}\u{435} \u{441}\u{442}\u{438}\u{43B}\u{438} \u{43E}\u{441}\u{442}\u{430}\u{432}\u{438}\u{442}\u{44C} \u{431}\u{435}\u{437} \u{438}\u{437}\u{43C}\u{435}\u{43D}\u{435}\u{43D}\u{438}\u{439} */
+/* остальные стили оставить без изменений */
 
 .product-card:hover {
   transform: translateY(-5px);
 }
 
-/* \u{41F}\u{430}\u{43B}\u{438}\u{43D}\u{434}\u{440}\u{43E}\u{43C} */
+/* Палиндром */
 .palindrome-card {
   border: 2px solid gold;
   box-shadow: 0 0 10px gold;
 }
 
-/* \u{418}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{435} */
+/* Изображение */
 .product-image {
   width: 100%;
   max-width: 100%;
   height: 170px;
-  object-fit: contain;   /* <=! \u{441}\u{43E}\u{445}\u{440}\u{430}\u{43D}\u{44F}\u{435}\u{442} \u{43F}\u{440}\u{43E}\u{43F}\u{43E}\u{440}\u{446}\u{438}\u{438}, \u{43D}\u{435} \u{43E}\u{431}\u{440}\u{435}\u{437}\u{430}\u{435}\u{442}! */
+  object-fit: contain;   /* <=! сохраняет пропорции, не обрезает! */
   background: #f5f5f5;
   display: block;
 }
 
-/* \u{414}\u{435}\u{442}\u{430}\u{43B}\u{438} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{438} */
+/* Детали карточки */
 .product-details {
   flex: 1 1 auto;
   padding: 12px 14px 16px 14px;
@@ -362,7 +362,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
   margin: 0 10px;
 }
 
-/* \u{410}\u{434}\u{430}\u{43F}\u{442}\u{438}\u{432}\u{43D}\u{43E}\u{441}\u{442}\u{44C} */
+/* Адаптивность */
 @media (max-width: 1080px) {
   .product-card {
     min-width: 45%;
@@ -382,9 +382,9 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
 }
 </style>
 
-            `}deleteCard(u){document.getElementById(`product-card-${u.id}`).remove()}addListeners(u,t){document.getElementById(`click-card-${u.id}`).addEventListener("click",t);let e=0,o=document.getElementById(`count-${u.id}`);document.getElementById(`minus-${u.id}`).addEventListener("click",()=>{e>0&&(o.textContent=--e),0===e&&this.deleteCard(u)}),document.getElementById(`plus-${u.id}`).addEventListener("click",()=>{o.textContent=++e})}render(u,t){let e=this.getHTML(u);this.parent.insertAdjacentHTML("beforeend",e),this.addListeners(u,t)}}const i=new class{async get(u,t){try{return await fetch(u,{method:"GET"}).then(u=>u.json()).then(u=>t(u))}catch(u){console.error("не удалось выполнить get - запрос:",u)}}async post(u,t,e){try{return await fetch(u,{method:"POST",headers:{"Content-Type":"application/json"},body:t}).then(u=>u.json()).then(u=>e(u))}catch(t){console.error(`\u{43D}\u{435} \u{443}\u{434}\u{430}\u{43B}\u{43E}\u{441}\u{44C} \u{432}\u{44B}\u{43F}\u{43E}\u{43B}\u{43D}\u{438}\u{442}\u{44C} post - \u{437}\u{430}\u{43F}\u{440}\u{43E}\u{441} ${u}: ${t}`)}}async patch(u,t,e){try{return await fetch(u,{method:"PATCH",headers:{"Content-Type":"application/json"},body:t}).then(u=>u.json()).then(u=>e(u))}catch(t){console.error(`\u{43D}\u{435} \u{443}\u{434}\u{430}\u{43B}\u{43E}\u{441}\u{44C} \u{432}\u{44B}\u{43F}\u{43E}\u{43B}\u{43D}\u{438}\u{442}\u{44C} patch - \u{437}\u{430}\u{43F}\u{440}\u{43E}\u{441} ${u}: ${t}`)}}async delete(u,t){try{return await fetch(u,{method:"DELETE"}).then(u=>u.json()).then(u=>t(u))}catch(t){console.error(`\u{43D}\u{435} \u{443}\u{434}\u{430}\u{43B}\u{43E}\u{441}\u{44C} \u{432}\u{44B}\u{43F}\u{43E}\u{43B}\u{43D}\u{438}\u{442}\u{44C} patch - \u{437}\u{430}\u{43F}\u{440}\u{43E}\u{441} ${u}: ${t}`)}}_handleResponse(u,t){if(u.status>=200&&u.status<300)try{if(u.responseText){let e=JSON.parse(u.responseText);t(e,u.status)}else console.warn("Пустой ответ от сервера"),t(null,u.status,"Пустой ответ")}catch(e){console.error("Ошибка парсинга JSON:",e),console.error("Ответ от сервера:",u.responseText),t(null,u.status,"Ошибка парсинга JSON")}else console.error(`HTTP-\u{43E}\u{448}\u{438}\u{431}\u{43A}\u{430} ${u.status}: ${u.statusText}`),t(null,u.status,u.statusText)}},n=new class{constructor(){this.baseUrl="http://localhost:3000"}getProducts(){return`${this.baseUrl}/products`}getProductById(u){return`${this.baseUrl}/products/${u}`}searchProductsByTitle(u){return`${this.baseUrl}/products/filter?title=${u}`}createProduct(){return`${this.baseUrl}/products`}removeProductById(u){return`${this.baseUrl}/products/${u}`}updateProductById(u){return`${this.baseUrl}/products/${u}`}};class a{constructor(u){this.parent=u}getHtml(){return`
+            `}deleteCard(t){document.getElementById(`product-card-${t.id}`).remove()}addListeners(t,e){document.getElementById(`click-card-${t.id}`).addEventListener("click",e);let o=0;const r=document.getElementById(`count-${t.id}`);document.getElementById(`minus-${t.id}`).addEventListener("click",()=>{o>0&&(o--,r.textContent=o),o===0&&this.deleteCard(t)}),document.getElementById(`plus-${t.id}`).addEventListener("click",()=>{o++,r.textContent=o})}render(t,e){const o=this.getHTML(t);this.parent.insertAdjacentHTML("beforeend",o),this.addListeners(t,e)}}class E{constructor(t){this.parent=t}getHtml(){return`
             <style>
-        /* \u{41E}\u{441}\u{43D}\u{43E}\u{432}\u{43D}\u{44B}\u{435} \u{441}\u{442}\u{438}\u{43B}\u{438} */
+        /* Основные стили */
         :root {
             --primary: #FC3F1D;
             --primary-hover: #F33517;
@@ -420,7 +420,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             padding: 0 20px;
         }
 
-        /* \u{428}\u{430}\u{43F}\u{43A}\u{430} */
+        /* Шапка */
         .header {
             background: #fff;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -448,7 +448,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             font-size: 22px;
         }
 
-        /* \u{417}\u{430}\u{433}\u{43E}\u{43B}\u{43E}\u{432}\u{43E}\u{43A} \u{441}\u{442}\u{440}\u{430}\u{43D}\u{438}\u{446}\u{44B} */
+        /* Заголовок страницы */
         .page-title {
             font-size: 28px;
             font-weight: 600;
@@ -461,7 +461,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             margin-bottom: 24px;
         }
 
-        /* \u{424}\u{43E}\u{440}\u{43C}\u{430} \u{434}\u{43E}\u{431}\u{430}\u{432}\u{43B}\u{435}\u{43D}\u{438}\u{44F} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} */
+        /* Форма добавления товара */
         .add-product-card {
             background: #fff;
             border-radius: 16px;
@@ -532,7 +532,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             resize: vertical;
         }
 
-        /* \u{41F}\u{440}\u{435}\u{434}\u{43F}\u{440}\u{43E}\u{441}\u{43C}\u{43E}\u{442}\u{440} \u{438}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{44F} */
+        /* Предпросмотр изображения */
         .image-preview {
             margin-top: 16px;
             background: var(--gray-lightest);
@@ -556,7 +556,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             object-fit: contain;
         }
 
-        /* \u{41A}\u{43D}\u{43E}\u{43F}\u{43A}\u{438} */
+        /* Кнопки */
         .form-actions {
             margin-top: 30px;
             display: flex;
@@ -598,7 +598,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             background: var(--gray-lightest);
         }
 
-        /* \u{418}\u{43D}\u{444}\u{43E}-\u{431}\u{43B}\u{43E}\u{43A} */
+        /* Инфо-блок */
         .info-block {
             background-color: var(--blue-light);
             border-radius: 8px;
@@ -629,7 +629,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             text-align: center;
         }
 
-        /* \u{410}\u{434}\u{430}\u{43F}\u{442}\u{438}\u{432}\u{43D}\u{43E}\u{441}\u{442}\u{44C} */
+        /* Адаптивность */
         @media (max-width: 768px) {
             .form-actions {
                 flex-direction: column-reverse;
@@ -650,42 +650,42 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
         }
     </style>
 
-    <!-- \u{428}\u{430}\u{43F}\u{43A}\u{430} -->
+    <!-- Шапка -->
     <header class="header">
         <div class="container">
             <div class="logo-container">
                 <a href="#" class="logo">
-                    <span class="logo-icon">\u{42F}</span>
-                    \u{41C}\u{430}\u{440}\u{43A}\u{435}\u{442}
+                    <span class="logo-icon">Я</span>
+                    Маркет
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- \u{41E}\u{441}\u{43D}\u{43E}\u{432}\u{43D}\u{43E}\u{435} \u{441}\u{43E}\u{434}\u{435}\u{440}\u{436}\u{438}\u{43C}\u{43E}\u{435} -->
+    <!-- Основное содержимое -->
     <main class="container">
-        <h1 class="page-title">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{43B}\u{435}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}</h1>
-        <p class="page-description">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{44C}\u{442}\u{435} \u{43D}\u{43E}\u{432}\u{44B}\u{439} \u{442}\u{43E}\u{432}\u{430}\u{440} \u{432} \u{43A}\u{430}\u{442}\u{430}\u{43B}\u{43E}\u{433}</p>
+        <h1 class="page-title">Добавление товара</h1>
+        <p class="page-description">Добавьте новый товар в каталог</p>
 
-        <!-- \u{418}\u{43D}\u{444}\u{43E}\u{440}\u{43C}\u{430}\u{446}\u{438}\u{43E}\u{43D}\u{43D}\u{44B}\u{439} \u{431}\u{43B}\u{43E}\u{43A} -->
+        <!-- Информационный блок -->
         <div class="info-block">
-            <div class="info-icon">\u{2139}\u{FE0F}</div>
+            <div class="info-icon">ℹ️</div>
             <div class="info-text">
-                \u{417}\u{430}\u{43F}\u{43E}\u{43B}\u{43D}\u{438}\u{442}\u{435} \u{432}\u{441}\u{435} \u{43E}\u{431}\u{44F}\u{437}\u{430}\u{442}\u{435}\u{43B}\u{44C}\u{43D}\u{44B}\u{435} \u{43F}\u{43E}\u{43B}\u{44F}. \u{422}\u{43E}\u{432}\u{430}\u{440} \u{431}\u{443}\u{434}\u{435}\u{442} \u{43E}\u{43F}\u{443}\u{431}\u{43B}\u{438}\u{43A}\u{43E}\u{432}\u{430}\u{43D} \u{43F}\u{43E}\u{441}\u{43B}\u{435} \u{43F}\u{440}\u{43E}\u{432}\u{435}\u{440}\u{43A}\u{438} \u{43C}\u{43E}\u{434}\u{435}\u{440}\u{430}\u{442}\u{43E}\u{440}\u{43E}\u{43C}.
+                Заполните все обязательные поля. Товар будет опубликован после проверки модератором.
             </div>
         </div>
 
-        <!-- \u{424}\u{43E}\u{440}\u{43C}\u{430} \u{434}\u{43E}\u{431}\u{430}\u{432}\u{43B}\u{435}\u{43D}\u{438}\u{44F} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} -->
+        <!-- Форма добавления товара -->
         <div class="add-product-card">
             <div class="form-header">
-                <h2 class="form-title">\u{418}\u{43D}\u{444}\u{43E}\u{440}\u{43C}\u{430}\u{446}\u{438}\u{44F} \u{43E} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{435}</h2>
-                <p class="form-description">\u{417}\u{430}\u{43F}\u{43E}\u{43B}\u{43D}\u{438}\u{442}\u{435} \u{43E}\u{441}\u{43D}\u{43E}\u{432}\u{43D}\u{443}\u{44E} \u{438}\u{43D}\u{444}\u{43E}\u{440}\u{43C}\u{430}\u{446}\u{438}\u{44E} \u{43E} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{435}</p>
+                <h2 class="form-title">Информация о товаре</h2>
+                <p class="form-description">Заполните основную информацию о товаре</p>
             </div>
 
             <form id="add-product-form">
-                <!-- \u{418}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} -->
+                <!-- Изображение товара -->
                 <div class="form-group">
-                    <label for="product-src" class="form-label">URL \u{438}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{44F} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} *</label>
+                    <label for="product-src" class="form-label">URL изображения товара *</label>
                     <input 
                         type="url" 
                         class="form-control" 
@@ -694,55 +694,55 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                         placeholder="https://example.com/image.jpg" 
                         required 
                     >
-                    <span class="form-hint">\u{423}\u{43A}\u{430}\u{436}\u{438}\u{442}\u{435} \u{43F}\u{440}\u{44F}\u{43C}\u{443}\u{44E} \u{441}\u{441}\u{44B}\u{43B}\u{43A}\u{443} \u{43D}\u{430} \u{438}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}</span>
+                    <span class="form-hint">Укажите прямую ссылку на изображение товара</span>
                     
-                    <!-- \u{41F}\u{440}\u{435}\u{434}\u{43F}\u{440}\u{43E}\u{441}\u{43C}\u{43E}\u{442}\u{440} \u{438}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{44F} -->
+                    <!-- Предпросмотр изображения -->
                     <div class="image-preview">
-                        <div class="preview-placeholder">\u{417}\u{434}\u{435}\u{441}\u{44C} \u{431}\u{443}\u{434}\u{435}\u{442} \u{43E}\u{442}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{430}\u{442}\u{44C}\u{441}\u{44F} \u{43F}\u{440}\u{435}\u{434}\u{43F}\u{440}\u{43E}\u{441}\u{43C}\u{43E}\u{442}\u{440} \u{438}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{44F}</div>
-                        <!-- <img src="" alt="\u{41F}\u{440}\u{435}\u{434}\u{43F}\u{440}\u{43E}\u{441}\u{43C}\u{43E}\u{442}\u{440} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}" class="preview-image" style="display: none;"> -->
+                        <div class="preview-placeholder">Здесь будет отображаться предпросмотр изображения</div>
+                        <!-- <img src="" alt="Предпросмотр товара" class="preview-image" style="display: none;"> -->
                     </div>
                 </div>
 
-                <!-- \u{41D}\u{430}\u{437}\u{432}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} -->
+                <!-- Название товара -->
                 <div class="form-group">
-                    <label for="product-title" class="form-label">\u{41D}\u{430}\u{437}\u{432}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} *</label>
+                    <label for="product-title" class="form-label">Название товара *</label>
                     <input 
                         type="text" 
                         class="form-control" 
                         id="product-title" 
                         name="title" 
-                        placeholder="\u{41D}\u{430}\u{43F}\u{440}\u{438}\u{43C}\u{435}\u{440}: \u{421}\u{43C}\u{430}\u{440}\u{442}\u{444}\u{43E}\u{43D} Apple iPhone 15 Pro 256 \u{413}\u{411}" 
+                        placeholder="Например: Смартфон Apple iPhone 15 Pro 256 ГБ" 
                         required 
                         maxlength="100"
                     >
-                    <span class="form-hint">\u{414}\u{43E} 100 \u{441}\u{438}\u{43C}\u{432}\u{43E}\u{43B}\u{43E}\u{432}</span>
+                    <span class="form-hint">До 100 символов</span>
                 </div>
 
-                <!-- \u{41E}\u{43F}\u{438}\u{441}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} -->
+                <!-- Описание товара -->
                 <div class="form-group">
-                    <label for="product-text" class="form-label">\u{41E}\u{43F}\u{438}\u{441}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} *</label>
+                    <label for="product-text" class="form-label">Описание товара *</label>
                     <textarea 
                         class="form-control" 
                         id="product-text" 
                         name="text" 
-                        placeholder="\u{41F}\u{43E}\u{434}\u{440}\u{43E}\u{431}\u{43D}\u{43E}\u{435} \u{43E}\u{43F}\u{438}\u{441}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}" 
+                        placeholder="Подробное описание товара" 
                         required 
                         maxlength="1000"
                     ></textarea>
-                    <span class="form-hint">\u{41E}\u{43F}\u{438}\u{448}\u{438}\u{442}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440} \u{43F}\u{43E}\u{434}\u{440}\u{43E}\u{431}\u{43D}\u{43E}, \u{443}\u{43A}\u{430}\u{437}\u{430}\u{432} \u{435}\u{433}\u{43E} \u{445}\u{430}\u{440}\u{430}\u{43A}\u{442}\u{435}\u{440}\u{438}\u{441}\u{442}\u{438}\u{43A}\u{438} \u{438} \u{43E}\u{441}\u{43E}\u{431}\u{435}\u{43D}\u{43D}\u{43E}\u{441}\u{442}\u{438}</span>
+                    <span class="form-hint">Опишите товар подробно, указав его характеристики и особенности</span>
                 </div>
 
-                <!-- \u{41A}\u{43D}\u{43E}\u{43F}\u{43A}\u{438} \u{434}\u{435}\u{439}\u{441}\u{442}\u{432}\u{438}\u{439} -->
+                <!-- Кнопки действий -->
                 <div class="form-actions">
-                    <button id="exit" type="button" class="btn btn-secondary">\u{41E}\u{442}\u{43C}\u{435}\u{43D}\u{430}</button>
-                    <button id="submit" type="submit" class="btn btn-primary">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{438}\u{442}\u{44C} \u{442}\u{43E}\u{432}\u{430}\u{440}</button>
+                    <button id="exit" type="button" class="btn btn-secondary">Отмена</button>
+                    <button id="submit" type="submit" class="btn btn-primary">Добавить товар</button>
                 </div>
             </form>
         </div>
     </main>
-        `}validateForm(){let u=document.getElementById("product-src"),t=u.value.trim();if(!t)return this.showError(u,"Укажите URL изображения"),!1;try{new URL(t)}catch(t){return this.showError(u,"Укажите корректный URL"),!1}let e=document.getElementById("product-title"),o=e.value.trim();if(!o)return this.showError(e,"Укажите название товара"),!1;if(o.length<3)return this.showError(e,"Название товара должно содержать не менее 3 символов"),!1;let r=document.getElementById("product-text"),i=r.value.trim();return i?i.length<10?(this.showError(r,"Описание товара должно содержать не менее 10 символов"),!1):(this.clearErrors(),!0):(this.showError(r,"Добавьте описание товара"),!1)}showError(u,t){let e=u.closest(".form-group");e.classList.add("has-error");let o=e.querySelector(".error-message");o||((o=document.createElement("span")).className="form-hint error-message",e.appendChild(o)),o.textContent=t,u.focus()}clearErrors(){document.querySelectorAll(".has-error").forEach(u=>{u.classList.remove("has-error")}),document.querySelectorAll(".error-message").forEach(u=>{u.remove()})}addProduct(u){if(!this.validateForm())return;u.preventDefault();let t=Object.fromEntries(new FormData(u.target));i.post(n.createProduct(),{src:t.src,title:t.title,text:t.text},u=>console.log(u))}addListenerToSrcInput(){let u=document.getElementById("product-src"),t=document.querySelector(".image-preview"),e=document.querySelector(".preview-placeholder");u.addEventListener("input",function(){let u=this.value.trim();if(u){let o=t.querySelector(".preview-image");o&&o.remove();let r=document.createElement("img");r.className="preview-image",r.alt="Предпросмотр товара",r.onload=function(){e.style.display="none",t.appendChild(r)},r.onerror=function(){e.textContent="Ошибка загрузки изображения. Проверьте URL.",e.style.display="block"},r.src=u}else{e.textContent="Здесь будет отображаться предпросмотр изображения",e.style.display="block";let u=t.querySelector(".preview-image");u&&u.remove()}})}goToPage(u){u.render()}addListenerToCancel(){document.getElementById("exit").addEventListener("click",()=>this.goToPage(new h(document.getElementById("root"),document)))}render(){this.parent.innerHTML="";let u=this.getHtml();this.parent.insertAdjacentHTML("beforeend",u),document.getElementById("add-product-form").addEventListener("submit",this.addProduct.bind(this)),this.addListenerToSrcInput(),this.addListenerToCancel()}}class d{constructor(u,t){this.parent=u,this.data=t}getHtml(){return`
+        `}validateForm(){const t=document.getElementById("product-src"),e=t.value.trim();if(!e)return this.showError(t,"Укажите URL изображения"),!1;try{new URL(e)}catch{return this.showError(t,"Укажите корректный URL"),!1}const o=document.getElementById("product-title"),r=o.value.trim();if(!r)return this.showError(o,"Укажите название товара"),!1;if(r.length<3)return this.showError(o,"Название товара должно содержать не менее 3 символов"),!1;const n=document.getElementById("product-text"),i=n.value.trim();return i?i.length<10?(this.showError(n,"Описание товара должно содержать не менее 10 символов"),!1):(this.clearErrors(),!0):(this.showError(n,"Добавьте описание товара"),!1)}showError(t,e){const o=t.closest(".form-group");o.classList.add("has-error");let r=o.querySelector(".error-message");r||(r=document.createElement("span"),r.className="form-hint error-message",o.appendChild(r)),r.textContent=e,t.focus()}clearErrors(){document.querySelectorAll(".has-error").forEach(t=>{t.classList.remove("has-error")}),document.querySelectorAll(".error-message").forEach(t=>{t.remove()})}addProduct(t){if(!this.validateForm())return;t.preventDefault();const e=t.target,o=new FormData(e),r=Object.fromEntries(o);s.post(d.createProduct(),r,n=>console.log(n))}addListenerToSrcInput(){const t=document.getElementById("product-src"),e=document.querySelector(".image-preview"),o=document.querySelector(".preview-placeholder");t.addEventListener("input",function(){const r=this.value.trim();if(r){const n=e.querySelector(".preview-image");n&&n.remove();const i=document.createElement("img");i.className="preview-image",i.alt="Предпросмотр товара",i.onload=function(){o.style.display="none",e.appendChild(i)},i.onerror=function(){o.textContent="Ошибка загрузки изображения. Проверьте URL.",o.style.display="block"},i.src=r}else{o.textContent="Здесь будет отображаться предпросмотр изображения",o.style.display="block";const n=e.querySelector(".preview-image");n&&n.remove()}})}goToPage(t){t.render()}addListenerToCancel(){document.getElementById("exit").addEventListener("click",()=>this.goToPage(new l(document.getElementById("root"),document)))}render(){this.parent.innerHTML="";const t=this.getHtml();this.parent.insertAdjacentHTML("beforeend",t),document.getElementById("add-product-form").addEventListener("submit",this.addProduct.bind(this)),this.addListenerToSrcInput(),this.addListenerToCancel()}}class F{constructor(t,e){this.parent=t,this.data=e}getHtml(){return`
             <style>
-        /* \u{41E}\u{441}\u{43D}\u{43E}\u{432}\u{43D}\u{44B}\u{435} \u{441}\u{442}\u{438}\u{43B}\u{438} */
+        /* Основные стили */
         :root {
             --primary: #FC3F1D;
             --primary-hover: #F33517;
@@ -778,7 +778,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             padding: 0 20px;
         }
 
-        /* \u{428}\u{430}\u{43F}\u{43A}\u{430} */
+        /* Шапка */
         .header {
             background: #fff;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -806,7 +806,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             font-size: 22px;
         }
 
-        /* \u{417}\u{430}\u{433}\u{43E}\u{43B}\u{43E}\u{432}\u{43E}\u{43A} \u{441}\u{442}\u{440}\u{430}\u{43D}\u{438}\u{446}\u{44B} */
+        /* Заголовок страницы */
         .page-title {
             font-size: 28px;
             font-weight: 600;
@@ -819,7 +819,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             margin-bottom: 24px;
         }
 
-        /* \u{424}\u{43E}\u{440}\u{43C}\u{430} \u{434}\u{43E}\u{431}\u{430}\u{432}\u{43B}\u{435}\u{43D}\u{438}\u{44F} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} */
+        /* Форма добавления товара */
         .add-product-card {
             background: #fff;
             border-radius: 16px;
@@ -890,7 +890,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             resize: vertical;
         }
 
-        /* \u{41F}\u{440}\u{435}\u{434}\u{43F}\u{440}\u{43E}\u{441}\u{43C}\u{43E}\u{442}\u{440} \u{438}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{44F} */
+        /* Предпросмотр изображения */
         .image-preview {
             margin-top: 16px;
             background: var(--gray-lightest);
@@ -914,7 +914,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             object-fit: contain;
         }
 
-        /* \u{41A}\u{43D}\u{43E}\u{43F}\u{43A}\u{438} */
+        /* Кнопки */
         .form-actions {
             margin-top: 30px;
             display: flex;
@@ -956,7 +956,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             background: var(--gray-lightest);
         }
 
-        /* \u{418}\u{43D}\u{444}\u{43E}-\u{431}\u{43B}\u{43E}\u{43A} */
+        /* Инфо-блок */
         .info-block {
             background-color: var(--blue-light);
             border-radius: 8px;
@@ -987,7 +987,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             text-align: center;
         }
 
-        /* \u{410}\u{434}\u{430}\u{43F}\u{442}\u{438}\u{432}\u{43D}\u{43E}\u{441}\u{442}\u{44C} */
+        /* Адаптивность */
         @media (max-width: 768px) {
             .form-actions {
                 flex-direction: column-reverse;
@@ -1008,42 +1008,42 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
         }
     </style>
 
-    <!-- \u{428}\u{430}\u{43F}\u{43A}\u{430} -->
+    <!-- Шапка -->
     <header class="header">
         <div class="container">
             <div class="logo-container">
                 <a href="#" class="logo">
-                    <span class="logo-icon">\u{42F}</span>
-                    \u{41C}\u{430}\u{440}\u{43A}\u{435}\u{442}
+                    <span class="logo-icon">Я</span>
+                    Маркет
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- \u{41E}\u{441}\u{43D}\u{43E}\u{432}\u{43D}\u{43E}\u{435} \u{441}\u{43E}\u{434}\u{435}\u{440}\u{436}\u{438}\u{43C}\u{43E}\u{435} -->
+    <!-- Основное содержимое -->
     <main class="container">
-        <h1 class="page-title">\u{420}\u{435}\u{434}\u{430}\u{43A}\u{442}\u{438}\u{440}\u{43E}\u{432}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}</h1>
-        <p class="page-description">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{44C}\u{442}\u{435} \u{43D}\u{43E}\u{432}\u{44B}\u{439} \u{442}\u{43E}\u{432}\u{430}\u{440} \u{432} \u{43A}\u{430}\u{442}\u{430}\u{43B}\u{43E}\u{433}</p>
+        <h1 class="page-title">Редактирование товара</h1>
+        <p class="page-description">Добавьте новый товар в каталог</p>
 
-        <!-- \u{418}\u{43D}\u{444}\u{43E}\u{440}\u{43C}\u{430}\u{446}\u{438}\u{43E}\u{43D}\u{43D}\u{44B}\u{439} \u{431}\u{43B}\u{43E}\u{43A} -->
+        <!-- Информационный блок -->
         <div class="info-block">
-            <div class="info-icon">\u{2139}\u{FE0F}</div>
+            <div class="info-icon">ℹ️</div>
             <div class="info-text">
-                \u{417}\u{430}\u{43F}\u{43E}\u{43B}\u{43D}\u{438}\u{442}\u{435} \u{432}\u{441}\u{435} \u{43E}\u{431}\u{44F}\u{437}\u{430}\u{442}\u{435}\u{43B}\u{44C}\u{43D}\u{44B}\u{435} \u{43F}\u{43E}\u{43B}\u{44F}. \u{422}\u{43E}\u{432}\u{430}\u{440} \u{431}\u{443}\u{434}\u{435}\u{442} \u{43E}\u{43F}\u{443}\u{431}\u{43B}\u{438}\u{43A}\u{43E}\u{432}\u{430}\u{43D} \u{43F}\u{43E}\u{441}\u{43B}\u{435} \u{43F}\u{440}\u{43E}\u{432}\u{435}\u{440}\u{43A}\u{438} \u{43C}\u{43E}\u{434}\u{435}\u{440}\u{430}\u{442}\u{43E}\u{440}\u{43E}\u{43C}.
+                Заполните все обязательные поля. Товар будет опубликован после проверки модератором.
             </div>
         </div>
 
-        <!-- \u{424}\u{43E}\u{440}\u{43C}\u{430} \u{434}\u{43E}\u{431}\u{430}\u{432}\u{43B}\u{435}\u{43D}\u{438}\u{44F} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} -->
+        <!-- Форма добавления товара -->
         <div class="add-product-card">
             <div class="form-header">
-                <h2 class="form-title">\u{418}\u{43D}\u{444}\u{43E}\u{440}\u{43C}\u{430}\u{446}\u{438}\u{44F} \u{43E} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{435}</h2>
-                <p class="form-description">\u{417}\u{430}\u{43F}\u{43E}\u{43B}\u{43D}\u{438}\u{442}\u{435} \u{43E}\u{441}\u{43D}\u{43E}\u{432}\u{43D}\u{443}\u{44E} \u{438}\u{43D}\u{444}\u{43E}\u{440}\u{43C}\u{430}\u{446}\u{438}\u{44E} \u{43E} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{435}</p>
+                <h2 class="form-title">Информация о товаре</h2>
+                <p class="form-description">Заполните основную информацию о товаре</p>
             </div>
 
             <form id="add-product-form">
-                <!-- \u{418}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} -->
+                <!-- Изображение товара -->
                 <div class="form-group">
-                    <label for="product-src" class="form-label">URL \u{438}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{44F} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} *</label>
+                    <label for="product-src" class="form-label">URL изображения товара *</label>
                     <input 
                         type="url" 
                         class="form-control" 
@@ -1052,18 +1052,18 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                         placeholder=${this.data.src}
                         value=${this.data.src}
                     >
-                    <span class="form-hint">\u{423}\u{43A}\u{430}\u{436}\u{438}\u{442}\u{435} \u{43F}\u{440}\u{44F}\u{43C}\u{443}\u{44E} \u{441}\u{441}\u{44B}\u{43B}\u{43A}\u{443} \u{43D}\u{430} \u{438}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}</span>
+                    <span class="form-hint">Укажите прямую ссылку на изображение товара</span>
                     
-                    <!-- \u{41F}\u{440}\u{435}\u{434}\u{43F}\u{440}\u{43E}\u{441}\u{43C}\u{43E}\u{442}\u{440} \u{438}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{44F} -->
+                    <!-- Предпросмотр изображения -->
                     <div class="image-preview">
-                        <div class="preview-placeholder">\u{417}\u{434}\u{435}\u{441}\u{44C} \u{431}\u{443}\u{434}\u{435}\u{442} \u{43E}\u{442}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{430}\u{442}\u{44C}\u{441}\u{44F} \u{43F}\u{440}\u{435}\u{434}\u{43F}\u{440}\u{43E}\u{441}\u{43C}\u{43E}\u{442}\u{440} \u{438}\u{437}\u{43E}\u{431}\u{440}\u{430}\u{436}\u{435}\u{43D}\u{438}\u{44F}</div>
-                        <!-- <img src="" alt="\u{41F}\u{440}\u{435}\u{434}\u{43F}\u{440}\u{43E}\u{441}\u{43C}\u{43E}\u{442}\u{440} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}" class="preview-image" style="display: none;"> -->
+                        <div class="preview-placeholder">Здесь будет отображаться предпросмотр изображения</div>
+                        <!-- <img src="" alt="Предпросмотр товара" class="preview-image" style="display: none;"> -->
                     </div>
                 </div>
 
-                <!-- \u{41D}\u{430}\u{437}\u{432}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} -->
+                <!-- Название товара -->
                 <div class="form-group">
-                    <label for="product-title" class="form-label">\u{41D}\u{430}\u{437}\u{432}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} *</label>
+                    <label for="product-title" class="form-label">Название товара *</label>
                     <input 
                         type="text" 
                         class="form-control" 
@@ -1073,12 +1073,12 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                         value=${this.data.title}
                         maxlength="100"
                     >
-                    <span class="form-hint">\u{414}\u{43E} 100 \u{441}\u{438}\u{43C}\u{432}\u{43E}\u{43B}\u{43E}\u{432}</span>
+                    <span class="form-hint">До 100 символов</span>
                 </div>
 
-                <!-- \u{41E}\u{43F}\u{438}\u{441}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} -->
+                <!-- Описание товара -->
                 <div class="form-group">
-                    <label for="product-text" class="form-label">\u{41E}\u{43F}\u{438}\u{441}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} *</label>
+                    <label for="product-text" class="form-label">Описание товара *</label>
                     <textarea 
                         class="form-control" 
                         id="product-text" 
@@ -1087,30 +1087,30 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                         value=${this.data.text}
                         maxlength="1000"
                     >${this.data.text}</textarea>
-                    <span class="form-hint">\u{41E}\u{43F}\u{438}\u{448}\u{438}\u{442}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440} \u{43F}\u{43E}\u{434}\u{440}\u{43E}\u{431}\u{43D}\u{43E}, \u{443}\u{43A}\u{430}\u{437}\u{430}\u{432} \u{435}\u{433}\u{43E} \u{445}\u{430}\u{440}\u{430}\u{43A}\u{442}\u{435}\u{440}\u{438}\u{441}\u{442}\u{438}\u{43A}\u{438} \u{438} \u{43E}\u{441}\u{43E}\u{431}\u{435}\u{43D}\u{43D}\u{43E}\u{441}\u{442}\u{438}</span>
+                    <span class="form-hint">Опишите товар подробно, указав его характеристики и особенности</span>
                 </div>
 
-                <!-- \u{41A}\u{43D}\u{43E}\u{43F}\u{43A}\u{438} \u{434}\u{435}\u{439}\u{441}\u{442}\u{432}\u{438}\u{439} -->
+                <!-- Кнопки действий -->
                 <div class="form-actions">
-                    <button id="exit" type="button" class="btn btn-secondary">\u{41E}\u{442}\u{43C}\u{435}\u{43D}\u{430}</button>
-                    <button id="submit" type="submit" class="btn btn-primary">\u{41E}\u{442}\u{440}\u{435}\u{434}\u{430}\u{43A}\u{442}\u{438}\u{440}\u{43E}\u{432}\u{430}\u{442}\u{44C} \u{442}\u{43E}\u{432}\u{430}\u{440}</button>
+                    <button id="exit" type="button" class="btn btn-secondary">Отмена</button>
+                    <button id="submit" type="submit" class="btn btn-primary">Отредактировать товар</button>
                 </div>
             </form>
         </div>
     </main>
-        `}validateForm(){let u=document.getElementById("product-src"),t=u.value.trim();if(!t)return this.showError(u,"Укажите URL изображения"),!1;try{new URL(t)}catch(t){return this.showError(u,"Укажите корректный URL"),!1}let e=document.getElementById("product-title"),o=e.value.trim();if(!o)return this.showError(e,"Укажите название товара"),!1;if(o.length<3)return this.showError(e,"Название товара должно содержать не менее 3 символов"),!1;let r=document.getElementById("product-text"),i=r.value.trim();return i?i.length<10?(this.showError(r,"Описание товара должно содержать не менее 10 символов"),!1):(this.clearErrors(),!0):(this.showError(r,"Добавьте описание товара"),!1)}showError(u,t){let e=u.closest(".form-group");e.classList.add("has-error");let o=e.querySelector(".error-message");o||((o=document.createElement("span")).className="form-hint error-message",e.appendChild(o)),o.textContent=t,u.focus()}clearErrors(){document.querySelectorAll(".has-error").forEach(u=>{u.classList.remove("has-error")}),document.querySelectorAll(".error-message").forEach(u=>{u.remove()})}addProduct(u){if(!this.validateForm())return;u.preventDefault();let t=Object.fromEntries(new FormData(u.target));i.patch(n.updateProductById(),t,u=>console.log(u))}addListenerToSrcInput(){let u=document.getElementById("product-src"),t=document.querySelector(".image-preview"),e=document.querySelector(".preview-placeholder");u.addEventListener("input",function(){let u=this.value.trim();if(u){let o=t.querySelector(".preview-image");o&&o.remove();let r=document.createElement("img");r.className="preview-image",r.alt="Предпросмотр товара",r.onload=function(){e.style.display="none",t.appendChild(r)},r.onerror=function(){e.textContent="Ошибка загрузки изображения. Проверьте URL.",e.style.display="block"},r.src=u}else{e.textContent="Здесь будет отображаться предпросмотр изображения",e.style.display="block";let u=t.querySelector(".preview-image");u&&u.remove()}})}goToPage(u){u.render()}addListenerToCancel(){document.getElementById("exit").addEventListener("click",()=>this.goToPage(new h(document.getElementById("root"),document)))}render(){this.parent.innerHTML="";let u=this.getHtml();this.parent.insertAdjacentHTML("beforeend",u),document.getElementById("add-product-form").addEventListener("submit",this.addProduct.bind(this)),this.addListenerToSrcInput(),this.addListenerToCancel()}}class s{constructor(u){this.parent=u}getHTML(u){return`
-            <div id="product-card-${u.id}" class="product-card">
-                <button id="remove-btn-${u.id}" class="card-delete">\u{270F}\u{FE0F}</button>
+        `}validateForm(){const t=document.getElementById("product-src"),e=t.value.trim();if(!e)return this.showError(t,"Укажите URL изображения"),!1;try{new URL(e)}catch{return this.showError(t,"Укажите корректный URL"),!1}const o=document.getElementById("product-title"),r=o.value.trim();if(!r)return this.showError(o,"Укажите название товара"),!1;if(r.length<3)return this.showError(o,"Название товара должно содержать не менее 3 символов"),!1;const n=document.getElementById("product-text"),i=n.value.trim();return i?i.length<10?(this.showError(n,"Описание товара должно содержать не менее 10 символов"),!1):(this.clearErrors(),!0):(this.showError(n,"Добавьте описание товара"),!1)}showError(t,e){const o=t.closest(".form-group");o.classList.add("has-error");let r=o.querySelector(".error-message");r||(r=document.createElement("span"),r.className="form-hint error-message",o.appendChild(r)),r.textContent=e,t.focus()}clearErrors(){document.querySelectorAll(".has-error").forEach(t=>{t.classList.remove("has-error")}),document.querySelectorAll(".error-message").forEach(t=>{t.remove()})}addProduct(t){if(!this.validateForm())return;t.preventDefault();const e=t.target,o=new FormData(e),r=Object.fromEntries(o);s.patch(d.updateProductById(),r,n=>console.log(n))}addListenerToSrcInput(){const t=document.getElementById("product-src"),e=document.querySelector(".image-preview"),o=document.querySelector(".preview-placeholder");t.addEventListener("input",function(){const r=this.value.trim();if(r){const n=e.querySelector(".preview-image");n&&n.remove();const i=document.createElement("img");i.className="preview-image",i.alt="Предпросмотр товара",i.onload=function(){o.style.display="none",e.appendChild(i)},i.onerror=function(){o.textContent="Ошибка загрузки изображения. Проверьте URL.",o.style.display="block"},i.src=r}else{o.textContent="Здесь будет отображаться предпросмотр изображения",o.style.display="block";const n=e.querySelector(".preview-image");n&&n.remove()}})}goToPage(t){t.render()}addListenerToCancel(){document.getElementById("exit").addEventListener("click",()=>this.goToPage(new l(document.getElementById("root"),document)))}render(){this.parent.innerHTML="";const t=this.getHtml();this.parent.insertAdjacentHTML("beforeend",t),document.getElementById("add-product-form").addEventListener("submit",this.addProduct.bind(this)),this.addListenerToSrcInput(),this.addListenerToCancel()}}let L=class{constructor(t){this.parent=t}getHTML(t){return`
+            <div id="product-card-${t.id}" class="product-card">
+                <button id="remove-btn-${t.id}" class="card-delete">✏️</button>
                 <div class="card-image-container">
-                    <img src=${u.src} alt="\u{422}\u{43E}\u{432}\u{430}\u{440}" class="card-image">
+                    <img src=${t.src} alt="Товар" class="card-image">
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">${u.title}</h3>
+                    <h3 class="card-title">${t.title}</h3>
                 </div>
             </div>
-        `}editCard(u){new d(document.getElementById("root"),u).render()}addListeners(u){document.getElementById(`remove-btn-${u.id}`).addEventListener("click",()=>{this.editCard(u)})}render(u){let t=this.getHTML(u);this.parent.insertAdjacentHTML("beforeend",t),this.addListeners(u)}}class c{constructor(u,t){this.parent=u,this.data=t}get cardsContainer(){return document.getElementById("cards-container")}getHtml(){return`
+        `}editCard(t){new F(document.getElementById("root"),t).render()}addListeners(t){document.getElementById(`remove-btn-${t.id}`).addEventListener("click",()=>{this.editCard(t)})}render(t){const e=this.getHTML(t);this.parent.insertAdjacentHTML("beforeend",e),this.addListeners(t)}};class z{constructor(t,e){this.parent=t,this.data=e}get cardsContainer(){return document.getElementById("cards-container")}getHtml(){return`
             <style>
-            /* \u{41E}\u{441}\u{43D}\u{43E}\u{432}\u{43D}\u{44B}\u{435} \u{441}\u{442}\u{438}\u{43B}\u{438} */
+            /* Основные стили */
             * {
                 margin: 0;
                 padding: 0;
@@ -1131,7 +1131,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                 padding: 0 20px;
             }
     
-            /* \u{428}\u{430}\u{43F}\u{43A}\u{430} */
+            /* Шапка */
             .header {
                 background: #fff;
                 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -1159,7 +1159,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                 font-size: 22px;
             }
     
-            /* \u{417}\u{430}\u{433}\u{43E}\u{43B}\u{43E}\u{432}\u{43E}\u{43A} \u{441}\u{442}\u{440}\u{430}\u{43D}\u{438}\u{446}\u{44B} */
+            /* Заголовок страницы */
             .page-title {
                 font-size: 28px;
                 font-weight: 600;
@@ -1172,7 +1172,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                 margin-bottom: 24px;
             }
     
-            /* \u{418}\u{43D}\u{444}\u{43E}-\u{431}\u{43B}\u{43E}\u{43A} */
+            /* Инфо-блок */
             .info-block {
                 background-color: #fff8e1;
                 border-radius: 8px;
@@ -1193,7 +1193,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                 color: #5a5a5a;
             }
     
-            /* \u{421}\u{43F}\u{438}\u{441}\u{43E}\u{43A} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{435}\u{43A} */
+            /* Список карточек */
             .cards-grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1201,7 +1201,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                 margin-bottom: 32px;
             }
     
-            /* \u{41A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{430} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} */
+            /* Карточка товара */
             .product-card {
                 background: #fff;
                 border-radius: 8px;
@@ -1268,7 +1268,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                 color: #fff;
             }
     
-            /* \u{41D}\u{438}\u{436}\u{43D}\u{44F}\u{44F} \u{43F}\u{430}\u{43D}\u{435}\u{43B}\u{44C} \u{434}\u{435}\u{439}\u{441}\u{442}\u{432}\u{438}\u{439} */
+            /* Нижняя панель действий */
             .action-panel {
                 position: fixed;
                 bottom: 0;
@@ -1329,7 +1329,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                 background: #e62e2e;
             }
     
-            /* Checkbox \u{434}\u{43B}\u{44F} \u{432}\u{44B}\u{431}\u{43E}\u{440}\u{430} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{435}\u{43A} */
+            /* Checkbox для выбора карточек */
             .card-checkbox {
                 position: absolute;
                 left: 8px;
@@ -1340,7 +1340,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                 accent-color: #fc0;
             }
     
-            /* \u{41F}\u{443}\u{441}\u{442}\u{43E}\u{435} \u{441}\u{43E}\u{441}\u{442}\u{43E}\u{44F}\u{43D}\u{438}\u{435} */
+            /* Пустое состояние */
             .empty-state {
                 text-align: center;
                 padding: 40px 0;
@@ -1369,7 +1369,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                 margin: 0 auto;
             }
     
-            /* \u{410}\u{434}\u{430}\u{43F}\u{442}\u{438}\u{432}\u{43D}\u{43E}\u{441}\u{442}\u{44C} */
+            /* Адаптивность */
             @media (max-width: 768px) {
                 .cards-grid {
                     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -1404,46 +1404,46 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                         font-size: 18px;
                     }
         </style>
-        <!-- \u{428}\u{430}\u{43F}\u{43A}\u{430} -->
+        <!-- Шапка -->
         <header class="header">
             <div class="container">
                 <div class="logo-container">
                 <button id="home-button" class="home-button">
-                            <span class="home-icon">\u{1F3E0}</span> \u{414}\u{43E}\u{43C}\u{43E}\u{439}
+                            <span class="home-icon">🏠</span> Домой
                         </button>
                     <a href="#" class="logo">
-                        <span class="logo-icon">\u{42F}</span>
-                        \u{41C}\u{430}\u{440}\u{43A}\u{435}\u{442}
+                        <span class="logo-icon">Я</span>
+                        Маркет
                     </a>
                 </div>
             </div>
         </header>
                 <div id="remove-page" class="container"> 
-                <h1 class="page-title">\u{420}\u{435}\u{434}\u{430}\u{43A}\u{442}\u{438}\u{440}\u{43E}\u{432}\u{430}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{43E}\u{432}</h1>
-            <p class="page-description">\u{412}\u{44B}\u{431}\u{435}\u{440}\u{438}\u{442}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{44B}, \u{43A}\u{43E}\u{442}\u{43E}\u{440}\u{44B}\u{435} \u{445}\u{43E}\u{442}\u{438}\u{442}\u{435} \u{43E}\u{442}\u{440}\u{435}\u{434}\u{430}\u{43A}\u{442}\u{438}\u{440}\u{43E}\u{432}\u{430}\u{442}\u{44C}</p>
+                <h1 class="page-title">Редактирование товаров</h1>
+            <p class="page-description">Выберите товары, которые хотите отредактировать</p>
     
-            <!-- \u{418}\u{43D}\u{444}\u{43E}\u{440}\u{43C}\u{430}\u{446}\u{438}\u{43E}\u{43D}\u{43D}\u{44B}\u{439} \u{431}\u{43B}\u{43E}\u{43A} -->
+            <!-- Информационный блок -->
             <div class="info-block">
-                <div class="info-icon">\u{2139}\u{FE0F}</div>
+                <div class="info-icon">ℹ️</div>
                 <div class="info-text">
-                    \u{434}\u{43B}\u{44F} \u{440}\u{435}\u{434}\u{430}\u{43A}\u{442}\u{438}\u{440}\u{43E}\u{432}\u{430}\u{43D}\u{438}\u{44F} \u{43F}\u{43D}\u{430}\u{436}\u{43C}\u{438}\u{442}\u{435} \u{43D}\u{430} \u{43A}\u{43D}\u{43E}\u{43F}\u{43A}\u{443} \u{441}\u{43F}\u{440}\u{430}\u{432}\u{432}\u{430} \u{432}\u{432}\u{435}\u{440}\u{445}\u{443} \u{43D}\u{430} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{435} \u{43D}\u{443}\u{436}\u{43D}\u{43E}\u{433}\u{43E} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}.
+                    для редактирования пнажмите на кнопку справва вверху на карточке нужного товара.
                 </div>
             </div>
                     <div id="cards-container" class="cards-grid"></div>
                 </div>
-            `}goToPage(u){u.render()}render(){this.parent.innerHTML="";let u=this.getHtml();this.parent.insertAdjacentHTML("beforeend",u),this.data.forEach(u=>{new s(this.cardsContainer).render(u)}),document.getElementById("home-button").addEventListener("click",()=>this.goToPage(new g(this.parent,this.data)))}}class l{constructor(u){this.parent=u}getHTML(u){return`
-            <div id="product-card-${u.id}" class="product-card">
-                <button id="remove-btn-${u.id}" class="card-delete">\u{2715}</button>
+            `}goToPage(t){t.render()}render(){this.parent.innerHTML="";const t=this.getHtml();this.parent.insertAdjacentHTML("beforeend",t),this.data.forEach(e=>{new L(this.cardsContainer).render(e)}),document.getElementById("home-button").addEventListener("click",()=>this.goToPage(new g(this.parent,this.data)))}}class T{constructor(t){this.parent=t}getHTML(t){return`
+            <div id="product-card-${t.id}" class="product-card">
+                <button id="remove-btn-${t.id}" class="card-delete">✕</button>
                 <div class="card-image-container">
-                    <img src=${u.src} alt="\u{422}\u{43E}\u{432}\u{430}\u{440}" class="card-image">
+                    <img src=${t.src} alt="Товар" class="card-image">
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">${u.title}</h3>
+                    <h3 class="card-title">${t.title}</h3>
                 </div>
             </div>
-        `}deleteCard(u){document.getElementById(`product-card-${u.id}`).remove(),i.delete(n.removeProductById(u.id),u=>{console.log("nice delete")})}addListeners(u){document.getElementById(`remove-btn-${u.id}`).addEventListener("click",()=>{this.deleteCard(u)})}render(u){let t=this.getHTML(u);this.parent.insertAdjacentHTML("beforeend",t),this.addListeners(u)}}class p{constructor(u,t){this.parent=u,this.data=t}get cardsContainer(){return document.getElementById("cards-container")}getHtml(){return`
+        `}deleteCard(t){document.getElementById(`product-card-${t.id}`).remove(),s.delete(d.removeProductById(t.id),o=>{console.log("nice delete")})}addListeners(t){document.getElementById(`remove-btn-${t.id}`).addEventListener("click",()=>{this.deleteCard(t)})}render(t){const e=this.getHTML(t);this.parent.insertAdjacentHTML("beforeend",e),this.addListeners(t)}}class B{constructor(t,e){this.parent=t,this.data=e}get cardsContainer(){return document.getElementById("cards-container")}getHtml(){return`
         <style>
-        /* \u{41E}\u{441}\u{43D}\u{43E}\u{432}\u{43D}\u{44B}\u{435} \u{441}\u{442}\u{438}\u{43B}\u{438} */
+        /* Основные стили */
         * {
             margin: 0;
             padding: 0;
@@ -1464,7 +1464,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             padding: 0 20px;
         }
 
-        /* \u{428}\u{430}\u{43F}\u{43A}\u{430} */
+        /* Шапка */
         .header {
             background: #fff;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -1492,7 +1492,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             font-size: 22px;
         }
 
-        /* \u{417}\u{430}\u{433}\u{43E}\u{43B}\u{43E}\u{432}\u{43E}\u{43A} \u{441}\u{442}\u{440}\u{430}\u{43D}\u{438}\u{446}\u{44B} */
+        /* Заголовок страницы */
         .page-title {
             font-size: 28px;
             font-weight: 600;
@@ -1505,7 +1505,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             margin-bottom: 24px;
         }
 
-        /* \u{418}\u{43D}\u{444}\u{43E}-\u{431}\u{43B}\u{43E}\u{43A} */
+        /* Инфо-блок */
         .info-block {
             background-color: #fff8e1;
             border-radius: 8px;
@@ -1526,7 +1526,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             color: #5a5a5a;
         }
 
-        /* \u{421}\u{43F}\u{438}\u{441}\u{43E}\u{43A} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{435}\u{43A} */
+        /* Список карточек */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1534,7 +1534,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             margin-bottom: 32px;
         }
 
-        /* \u{41A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{430} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} */
+        /* Карточка товара */
         .product-card {
             background: #fff;
             border-radius: 8px;
@@ -1601,7 +1601,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             color: #fff;
         }
 
-        /* \u{41D}\u{438}\u{436}\u{43D}\u{44F}\u{44F} \u{43F}\u{430}\u{43D}\u{435}\u{43B}\u{44C} \u{434}\u{435}\u{439}\u{441}\u{442}\u{432}\u{438}\u{439} */
+        /* Нижняя панель действий */
         .action-panel {
             position: fixed;
             bottom: 0;
@@ -1662,7 +1662,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             background: #e62e2e;
         }
 
-        /* Checkbox \u{434}\u{43B}\u{44F} \u{432}\u{44B}\u{431}\u{43E}\u{440}\u{430} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{435}\u{43A} */
+        /* Checkbox для выбора карточек */
         .card-checkbox {
             position: absolute;
             left: 8px;
@@ -1673,7 +1673,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             accent-color: #fc0;
         }
 
-        /* \u{41F}\u{443}\u{441}\u{442}\u{43E}\u{435} \u{441}\u{43E}\u{441}\u{442}\u{43E}\u{44F}\u{43D}\u{438}\u{435} */
+        /* Пустое состояние */
         .empty-state {
             text-align: center;
             padding: 40px 0;
@@ -1702,7 +1702,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
             margin: 0 auto;
         }
 
-        /* \u{410}\u{434}\u{430}\u{43F}\u{442}\u{438}\u{432}\u{43D}\u{43E}\u{441}\u{442}\u{44C} */
+        /* Адаптивность */
         @media (max-width: 768px) {
             .cards-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -1737,36 +1737,36 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                     font-size: 18px;
                 }
     </style>
-    <!-- \u{428}\u{430}\u{43F}\u{43A}\u{430} -->
+    <!-- Шапка -->
     <header class="header">
         <div class="container">
             <div class="logo-container">
             <button id="home-button" class="home-button">
-                        <span class="home-icon">\u{1F3E0}</span> \u{414}\u{43E}\u{43C}\u{43E}\u{439}
+                        <span class="home-icon">🏠</span> Домой
                     </button>
                 <a href="#" class="logo">
-                    <span class="logo-icon">\u{42F}</span>
-                    \u{41C}\u{430}\u{440}\u{43A}\u{435}\u{442}
+                    <span class="logo-icon">Я</span>
+                    Маркет
                 </a>
             </div>
         </div>
     </header>
             <div id="remove-page" class="container"> 
-            <h1 class="page-title">\u{423}\u{434}\u{430}\u{43B}\u{435}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{43E}\u{432}</h1>
-        <p class="page-description">\u{412}\u{44B}\u{431}\u{435}\u{440}\u{438}\u{442}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{44B}, \u{43A}\u{43E}\u{442}\u{43E}\u{440}\u{44B}\u{435} \u{445}\u{43E}\u{442}\u{438}\u{442}\u{435} \u{443}\u{434}\u{430}\u{43B}\u{438}\u{442}\u{44C} \u{438}\u{437} \u{43A}\u{430}\u{442}\u{430}\u{43B}\u{43E}\u{433}\u{430}</p>
+            <h1 class="page-title">Удаление товаров</h1>
+        <p class="page-description">Выберите товары, которые хотите удалить из каталога</p>
 
-        <!-- \u{418}\u{43D}\u{444}\u{43E}\u{440}\u{43C}\u{430}\u{446}\u{438}\u{43E}\u{43D}\u{43D}\u{44B}\u{439} \u{431}\u{43B}\u{43E}\u{43A} -->
+        <!-- Информационный блок -->
         <div class="info-block">
-            <div class="info-icon">\u{2139}\u{FE0F}</div>
+            <div class="info-icon">ℹ️</div>
             <div class="info-text">
-                \u{414}\u{43B}\u{44F} \u{443}\u{434}\u{430}\u{43B}\u{435}\u{43D}\u{438}\u{44F} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} \u{43D}\u{430}\u{436}\u{43C}\u{438}\u{442}\u{435} \u{43D}\u{430} \u{43A}\u{43D}\u{43E}\u{43F}\u{43A}\u{443} \u{441} \u{43A}\u{43E}\u{440}\u{437}\u{438}\u{43D}\u{43E}\u{439} \u{43D}\u{430} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{435} \u{438}\u{43B}\u{438} \u{432}\u{44B}\u{431}\u{435}\u{440}\u{438}\u{442}\u{435} \u{43D}\u{435}\u{441}\u{43A}\u{43E}\u{43B}\u{44C}\u{43A}\u{43E} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{43E}\u{432} \u{441} \u{43F}\u{43E}\u{43C}\u{43E}\u{449}\u{44C}\u{44E} \u{447}\u{435}\u{43A}\u{431}\u{43E}\u{43A}\u{441}\u{43E}\u{432} \u{438} \u{443}\u{434}\u{430}\u{43B}\u{438}\u{442}\u{435} \u{438}\u{445} \u{43E}\u{434}\u{43D}\u{43E}\u{432}\u{440}\u{435}\u{43C}\u{435}\u{43D}\u{43D}\u{43E}.
+                Для удаления товара нажмите на кнопку с корзиной на карточке или выберите несколько товаров с помощью чекбоксов и удалите их одновременно.
             </div>
         </div>
                 <div id="cards-container" class="cards-grid"></div>
             </div>
-        `}goToPage(u){u.render()}render(){this.parent.innerHTML="";let u=this.getHtml();this.parent.insertAdjacentHTML("beforeend",u),this.data.forEach(u=>{new l(this.cardsContainer).render(u)}),document.getElementById("home-button").addEventListener("click",()=>this.goToPage(new g(this.parent,this.data)))}}class g{constructor(u,t){this.parent=u,this.data=t}getHTML(){return`
+        `}goToPage(t){t.render()}render(){this.parent.innerHTML="";const t=this.getHtml();this.parent.insertAdjacentHTML("beforeend",t),this.data.forEach(e=>{new T(this.cardsContainer).render(e)}),document.getElementById("home-button").addEventListener("click",()=>this.goToPage(new g(this.parent,this.data)))}}class g{constructor(t,e){this.parent=t,this.data=e}getHTML(){return`
             <style>
-    /* \u{41E}\u{441}\u{43D}\u{43E}\u{432}\u{43D}\u{44B}\u{435} \u{441}\u{442}\u{438}\u{43B}\u{438} */
+    /* Основные стили */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -1787,7 +1787,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
       padding: 0 20px;
     }
     
-    /* \u{428}\u{430}\u{43F}\u{43A}\u{430} */
+    /* Шапка */
     .header {
       background: #fff;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -1815,14 +1815,14 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
       font-size: 22px;
     }
     
-    /* \u{417}\u{430}\u{433}\u{43E}\u{43B}\u{43E}\u{432}\u{43E}\u{43A} \u{441}\u{442}\u{440}\u{430}\u{43D}\u{438}\u{446}\u{44B} */
+    /* Заголовок страницы */
     .page-title {
       font-size: 28px;
       font-weight: 600;
       margin-bottom: 24px;
     }
     
-    /* \u{41A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{430} \u{441} \u{43E}\u{43F}\u{435}\u{440}\u{430}\u{446}\u{438}\u{44F}\u{43C}\u{438} */
+    /* Карточка с операциями */
     .operations-card {
       background: #fff;
       border-radius: 16px;
@@ -1844,7 +1844,7 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
       font-size: 15px;
     }
     
-    /* \u{41A}\u{43D}\u{43E}\u{43F}\u{43A}\u{438} \u{43E}\u{43F}\u{435}\u{440}\u{430}\u{446}\u{438}\u{439} */
+    /* Кнопки операций */
     .operations-menu {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1987,85 +1987,85 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
     }
   </style>
 
-            <!-- \u{428}\u{430}\u{43F}\u{43A}\u{430} -->
+            <!-- Шапка -->
   <header class="header">
     <div class="container">
       <div class="logo-container">
       <button id="home-button" class="home-button">
-                        <span class="home-icon">\u{1F3E0}</span> \u{414}\u{43E}\u{43C}\u{43E}\u{439}
+                        <span class="home-icon">🏠</span> Домой
                     </button>
         <a href="#" class="logo">
-          <span class="logo-icon">\u{42F}</span>
-          \u{41C}\u{430}\u{440}\u{43A}\u{435}\u{442} 
+          <span class="logo-icon">Я</span>
+          Маркет 
         </a>
       </div>
     </div>
   </header>
 
-            <!-- \u{41E}\u{441}\u{43D}\u{43E}\u{432}\u{43D}\u{43E}\u{435} \u{441}\u{43E}\u{434}\u{435}\u{440}\u{436}\u{438}\u{43C}\u{43E}\u{435} -->
+            <!-- Основное содержимое -->
   <main class="container">
-    <h1 class="page-title">\u{423}\u{43F}\u{440}\u{430}\u{432}\u{43B}\u{435}\u{43D}\u{438}\u{435} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}\u{43C}\u{438}</h1>
+    <h1 class="page-title">Управление товарами</h1>
     
     <div class="operations-card">
-      <h2 class="operations-title">\u{412}\u{44B}\u{431}\u{435}\u{440}\u{438}\u{442}\u{435} \u{43E}\u{43F}\u{435}\u{440}\u{430}\u{446}\u{438}\u{44E}</h2>
+      <h2 class="operations-title">Выберите операцию</h2>
       <p class="operations-description">
-        \u{412}\u{44B}\u{431}\u{435}\u{440}\u{438}\u{442}\u{435} \u{43D}\u{435}\u{43E}\u{431}\u{445}\u{43E}\u{434}\u{438}\u{43C}\u{43E}\u{435} \u{434}\u{435}\u{439}\u{441}\u{442}\u{432}\u{438}\u{435} \u{434}\u{43B}\u{44F} \u{440}\u{430}\u{431}\u{43E}\u{442}\u{44B} \u{441} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}\u{43C}\u{438} \u{432} \u{43A}\u{430}\u{442}\u{430}\u{43B}\u{43E}\u{433}\u{435}
+        Выберите необходимое действие для работы с товарами в каталоге
       </p>
       
       <div class="operations-menu">
-        <!-- \u{41A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{430} \u{434}\u{43E}\u{431}\u{430}\u{432}\u{43B}\u{435}\u{43D}\u{438}\u{44F} -->
+        <!-- Карточка добавления -->
         <div class="operation-item add">
           <div class="operation-icon">+</div>
-          <h3 class="operation-title">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{438}\u{442}\u{44C} \u{442}\u{43E}\u{432}\u{430}\u{440}</h3>
+          <h3 class="operation-title">Добавить товар</h3>
           <p class="operation-desc">
-            \u{421}\u{43E}\u{437}\u{434}\u{430}\u{43D}\u{438}\u{435} \u{43D}\u{43E}\u{432}\u{43E}\u{433}\u{43E} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430} \u{432} \u{43A}\u{430}\u{442}\u{430}\u{43B}\u{43E}\u{433}\u{435} \u{441} \u{443}\u{43A}\u{430}\u{437}\u{430}\u{43D}\u{438}\u{435}\u{43C} \u{432}\u{441}\u{435}\u{439} \u{43D}\u{435}\u{43E}\u{431}\u{445}\u{43E}\u{434}\u{438}\u{43C}\u{43E}\u{439} \u{438}\u{43D}\u{444}\u{43E}\u{440}\u{43C}\u{430}\u{446}\u{438}\u{438}.
+            Создание нового товара в каталоге с указанием всей необходимой информации.
           </p>
-          <button class="operation-button" id="add">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{438}\u{442}\u{44C}</button>
+          <button class="operation-button" id="add">Добавить</button>
         </div>
         
-        <!-- \u{41A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{430} \u{440}\u{435}\u{434}\u{430}\u{43A}\u{442}\u{438}\u{440}\u{43E}\u{432}\u{430}\u{43D}\u{438}\u{44F} -->
+        <!-- Карточка редактирования -->
         <div class="operation-item edit">
-          <div class="operation-icon">\u{270F}\u{FE0F}</div>
-          <h3 class="operation-title">\u{420}\u{435}\u{434}\u{430}\u{43A}\u{442}\u{438}\u{440}\u{43E}\u{432}\u{430}\u{442}\u{44C} \u{442}\u{43E}\u{432}\u{430}\u{440}</h3>
+          <div class="operation-icon">✏️</div>
+          <h3 class="operation-title">Редактировать товар</h3>
           <p class="operation-desc">
-            \u{418}\u{437}\u{43C}\u{435}\u{43D}\u{435}\u{43D}\u{438}\u{435} \u{438}\u{43D}\u{444}\u{43E}\u{440}\u{43C}\u{430}\u{446}\u{438}\u{438} \u{43E} \u{441}\u{443}\u{449}\u{435}\u{441}\u{442}\u{432}\u{443}\u{44E}\u{449}\u{435}\u{43C} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{435} \u{432} \u{43A}\u{430}\u{442}\u{430}\u{43B}\u{43E}\u{433}\u{435}.
+            Изменение информации о существующем товаре в каталоге.
           </p>
-          <button class="operation-button"  id="edit">\u{420}\u{435}\u{434}\u{430}\u{43A}\u{442}\u{438}\u{440}\u{43E}\u{432}\u{430}\u{442}\u{44C}</button>
+          <button class="operation-button"  id="edit">Редактировать</button>
         </div>
         
-        <!-- \u{41A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{430} \u{443}\u{434}\u{430}\u{43B}\u{435}\u{43D}\u{438}\u{44F} -->
+        <!-- Карточка удаления -->
         <div class="operation-item delete">
-          <div class="operation-icon">\u{1F5D1}\u{FE0F}</div>
-          <h3 class="operation-title">\u{423}\u{434}\u{430}\u{43B}\u{438}\u{442}\u{44C} \u{442}\u{43E}\u{432}\u{430}\u{440}</h3>
+          <div class="operation-icon">🗑️</div>
+          <h3 class="operation-title">Удалить товар</h3>
           <p class="operation-desc">
-            \u{423}\u{434}\u{430}\u{43B}\u{435}\u{43D}\u{438}\u{435} \u{43E}\u{434}\u{43D}\u{43E}\u{433}\u{43E} \u{438}\u{43B}\u{438} \u{43D}\u{435}\u{441}\u{43A}\u{43E}\u{43B}\u{44C}\u{43A}\u{438}\u{445} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{43E}\u{432} \u{438}\u{437} \u{43A}\u{430}\u{442}\u{430}\u{43B}\u{43E}\u{433}\u{430}.
+            Удаление одного или нескольких товаров из каталога.
           </p>
-          <button class="operation-button"  id="remove">\u{423}\u{434}\u{430}\u{43B}\u{438}\u{442}\u{44C}</button>
+          <button class="operation-button"  id="remove">Удалить</button>
         </div>
       </div>
     </div>
   </main>
-            `}goToPage(u){u.render()}getListeners(){document.getElementById("add").addEventListener("click",()=>this.goToPage(new a(this.parent))),document.getElementById("edit").addEventListener("click",()=>this.goToPage(new c(this.parent,this.data))),document.getElementById("remove").addEventListener("click",()=>this.goToPage(new p(this.parent,this.data))),document.getElementById("home-button").addEventListener("click",()=>this.goToPage(new h(this.parent,document)))}render(){this.parent.innerHTML="";let u=this.getHTML();this.parent.insertAdjacentHTML("beforeend",u),this.getListeners()}}class m{constructor(u,t){this.parent=u,this.data=t}getHtml(){return`
+            `}goToPage(t){t.render()}getListeners(){document.getElementById("add").addEventListener("click",()=>this.goToPage(new E(this.parent))),document.getElementById("edit").addEventListener("click",()=>this.goToPage(new z(this.parent,this.data))),document.getElementById("remove").addEventListener("click",()=>this.goToPage(new B(this.parent,this.data))),document.getElementById("home-button").addEventListener("click",()=>this.goToPage(new l(this.parent,document)))}render(){this.parent.innerHTML="";const t=this.getHTML();this.parent.insertAdjacentHTML("beforeend",t),this.getListeners()}}class C{constructor(t,e){this.parent=t,this.data=e}getHtml(){return`
             <div class="search-container">
                 <div class="search-row">
-                    <input type="text" id="search-input" class="search-input" placeholder="\u{41F}\u{43E}\u{438}\u{441}\u{43A} \u{43F}\u{43E} \u{43D}\u{430}\u{437}\u{432}\u{430}\u{43D}\u{438}\u{44E} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{430}...">
+                    <input type="text" id="search-input" class="search-input" placeholder="Поиск по названию товара...">
                 </div>
                 
                 <div class="header-buttons">
                     <div class="search-buttons">
                         <button id="search-button" class="yandex-button">
-                            \u{41D}\u{430}\u{439}\u{442}\u{438}
+                            Найти
                         </button>
                         <button id="clear-search" class="yandex-button">
-                            \u{41E}\u{447}\u{438}\u{441}\u{442}\u{438}\u{442}\u{44C}
+                            Очистить
                         </button>
                         <button id="operations" class="yandex-button">
-                            \u{41E}\u{43F}\u{435}\u{440}\u{430}\u{446}\u{438}\u{438}
+                            Операции
                         </button>
                     </div>
                     <div>
                         <button id="plus" class="yandex-button">
-                            <span style="margin-right: 5px;">+</span> \u{414}\u{43E}\u{431}\u{430}\u{432}\u{438}\u{442}\u{44C} \u{43A}\u{430}\u{440}\u{442}\u{43E}\u{447}\u{43A}\u{443}
+                            <span style="margin-right: 5px;">+</span> Добавить карточку
                         </button>
                     </div>
                 </div>
@@ -2118,17 +2118,16 @@ function u(u,t){let e=0;for(let o of u)t.startsWith(o)&&e++;return e}function t(
                     background-color: #F6F6F6;
                 }
             </style>
-            `}render(){let u=this.getHtml();this.parent.insertAdjacentHTML("beforeend",u),document.getElementById("search-button").addEventListener("click",()=>{let u=document.getElementById("search-input").value.toLowerCase().trim();if(!u)return void this.showAllCards();document.querySelectorAll('[id^="card-trio-"]').forEach(t=>{let e=t.children,o=!1;Array.from(e).forEach(t=>{let e=t.querySelector("h5");e&&(e.textContent.toLowerCase().includes(u)?(t.style.display="",o=!0):t.style.display="none")}),t.style.display=o?"":"none"})}),document.getElementById("clear-search").addEventListener("click",()=>{document.getElementById("search-input").value="",this.showAllCards()}),document.getElementById("search-input").addEventListener("keypress",u=>{"Enter"===u.key&&document.getElementById("search-button").click()}),document.getElementById("operations").addEventListener("click",()=>{new g(document.getElementById("root"),this.data).render()})}showAllCards(){document.querySelectorAll('[id^="card-trio-"]').forEach(u=>{u.style.display="",Array.from(u.children).forEach(u=>{u.style.display=""})})}}class h{constructor(u,t){this.parent=u,this.document=t,this.i=1,this.data=null}get pageRoot(){return this.document.getElementById("main-page")}getHTML(){return`
+            `}render(){const t=this.getHtml();this.parent.insertAdjacentHTML("beforeend",t),document.getElementById("search-button").addEventListener("click",()=>{const e=document.getElementById("search-input").value.toLowerCase().trim();if(!e){this.showAllCards();return}const o=document.querySelectorAll('[id^="card-trio-"]');s.get(d.getProducts(),r=>console.log()),o.forEach(r=>{const n=r.children;let i=!1;Array.from(n).forEach(c=>{const m=c.querySelector("h5");m&&(m.textContent.toLowerCase().includes(e)?(c.style.display="",i=!0):c.style.display="none")}),r.style.display=i?"":"none"})}),document.getElementById("clear-search").addEventListener("click",()=>{document.getElementById("search-input").value="",this.showAllCards()}),document.getElementById("search-input").addEventListener("keypress",e=>{e.key==="Enter"&&document.getElementById("search-button").click()}),document.getElementById("operations").addEventListener("click",()=>{new g(document.getElementById("root"),this.data).render()})}showAllCards(){document.querySelectorAll('[id^="card-trio-"]').forEach(e=>{e.style.display="";const o=e.children;Array.from(o).forEach(r=>{r.style.display=""})})}}class l{constructor(t,e){this.parent=t,this.document=e,this.i=1,this.data=null}get pageRoot(){return this.document.getElementById("main-page")}getHTML(){return`
             <div id="main-page">
-                <!-- SearchComponent \u{431}\u{443}\u{434}\u{435}\u{442} \u{434}\u{43E}\u{431}\u{430}\u{432}\u{43B}\u{435}\u{43D} \u{437}\u{434}\u{435}\u{441}\u{44C} -->
+                <!-- SearchComponent будет добавлен здесь -->
             </div>
             <div id="cards-container"></div>
-            `}getData(){i.get(n.getProducts(),u=>this.renderData(u))}renderData(u){this.data=u,new m(this.pageRoot,this.data).render(),document.getElementById("plus").addEventListener("click",()=>this.addCard());let t=this.document.getElementById("cards-container");t.insertAdjacentHTML("beforeend",'<div id="card-trio-0" class="card-row"></div>'),u.forEach(u=>{new r(this.document.getElementById(`card-trio-${Math.floor((this.i-1)/3)}`)).render(u,this.clickCard.bind(this)),this.i%3==0&&t.insertAdjacentHTML("beforeend",`<div id="card-trio-${Math.floor(this.i/3)}" class="card-row"></div>`),this.i++})}addCard(){let u=this.data[0];this.document.getElementById(`card-trio-${Math.floor((this.i-1)/3)}`)||this.document.getElementById("cards-container").insertAdjacentHTML("beforeend",`<div id="card-trio-${Math.floor((this.i-1)/3)}" class="card-row"></div>`),new r(this.document.getElementById(`card-trio-${Math.floor((this.i-1)/3)}`)).render(u,this.clickCard.bind(this)),this.i%3==0&&this.document.getElementById("cards-container").insertAdjacentHTML("beforeend",`<div id="card-trio-${Math.floor(this.i/3)}" class="card-row"></div>`),this.i++}clickCard(u){let t=u.target.dataset.id;new o(this.parent,t,this.data,this.document).render()}render(){this.parent.innerHTML="";let u=this.getHTML();this.parent.insertAdjacentHTML("beforeend",u);let t=document.createElement("style");t.textContent=`
+            `}getData(){s.get(d.getProducts(),t=>this.renderData(t))}renderData(t){this.data=t,new C(this.pageRoot,this.data).render(),document.getElementById("plus").addEventListener("click",()=>this.addCard());const o=this.document.getElementById("cards-container");o.insertAdjacentHTML("beforeend",'<div id="card-trio-0" class="card-row"></div>'),t.forEach(r=>{new u(this.document.getElementById(`card-trio-${Math.floor((this.i-1)/3)}`)).render(r,this.clickCard.bind(this)),this.i%3==0&&o.insertAdjacentHTML("beforeend",`<div id="card-trio-${Math.floor(this.i/3)}" class="card-row"></div>`),this.i++})}addCard(){const t=this.data[0];this.document.getElementById(`card-trio-${Math.floor((this.i-1)/3)}`)||this.document.getElementById("cards-container").insertAdjacentHTML("beforeend",`<div id="card-trio-${Math.floor((this.i-1)/3)}" class="card-row"></div>`),new u(this.document.getElementById(`card-trio-${Math.floor((this.i-1)/3)}`)).render(t,this.clickCard.bind(this)),this.i%3==0&&this.document.getElementById("cards-container").insertAdjacentHTML("beforeend",`<div id="card-trio-${Math.floor(this.i/3)}" class="card-row"></div>`),this.i++}clickCard(t){const e=t.target.dataset.id;new k(this.parent,e,this.data,this.document).render()}render(){this.parent.innerHTML="";const t=this.getHTML();this.parent.insertAdjacentHTML("beforeend",t);const e=document.createElement("style");e.textContent=`
             .card-row {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 20px;
                 margin-bottom: 20px;
             }
-        `,document.head.appendChild(t),this.getData()}}const x=document;new h(x.getElementById("root"),x).render();
-//# sourceMappingURL=js-project.e0f3ccfb.js.map
+        `,document.head.appendChild(e),this.getData()}}const x=document,I=x.getElementById("root"),$=new l(I,x);$.render();
